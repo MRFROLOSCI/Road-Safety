@@ -250,12 +250,18 @@
 		font-weight: normal;
 		font-size: 10px;
 		color: rgba(230,234,236,1);
+	@viewport {
+	    zoom: 1.0;
+		width: extend-to-zoom;
 	}
-	@media (min-width: 600px) {
-}
+	@-ms-viewport {
+        width: extend-to-zoom;
+        zoom: 1.0;		
+	}
 
 
 </style>
+       <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
 <div id="INDEX" class="">
