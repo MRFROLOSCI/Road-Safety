@@ -356,11 +356,17 @@
 		font-size: 20px;
 		color: rgba(112,112,112,0.749);
 	}
+@media (min-width: 600px) {
+}
+
+
+
 </style>
 </head>
 <body>
+
 <div id="Android_Mobile___4" class="">
-	<svg class="Asset_1_800x">
+	<svg  onclick="snap(); class="Asset_1_800x">
 		<pattern elementId="Asset_1_800x_A3_Rectangle_2" id="Asset_1_800x_A3_Rectangle_2_pattern" x="0" y="0" width="100%" height="100%">
 			<image x="0" y="0" width="100%" height="100%" href="Asset_1_800x_A3_Rectangle_2_pattern.png" xlink:href="Asset_1_800x_A3_Rectangle_2_pattern.png"></image>
 		</pattern>
@@ -379,18 +385,19 @@
 		<div id="LOCATION_A3_Text_7">
 			<span>REPORT IRREGULARITIES</span>
 		</div>
-		<a href = "MAIN.html">
+		
 		<div id="Backward_arrow_A3_Group_7">
-			
+			<a href = "MAIN.html">
 			<svg class="Path_10_A3_Path_3" viewBox="0 0 16 16">
 				<path fill="rgba(38,153,251,1)" id="Path_10_A3_Path_3" d="M 8 0 L 6.545454978942871 1.454545497894287 L 12.05194854736328 6.961039066314697 L 0 6.961039066314697 L 0 9.038961410522461 L 12.05194854736328 9.038961410522461 L 6.545454978942871 14.54545497894287 L 8 16 L 16 8 L 8 0 Z">
 				</path>
 			</svg>
+			</a>
 			
 		</div>
 		
 
-	</div></a>
+	</div>
 	<svg class="Rectangle_84">
 		<rect fill="rgba(236,238,240,1)" stroke="rgba(65,156,226,1)" stroke-width="2px" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" shape-rendering="auto" id="Rectangle_84" rx="0" ry="0" x="0" y="0" width="259" height="237">
 		</rect>
@@ -413,10 +420,12 @@
 		<span>Vehicle Number</span>
 	</div>
 	<div id="Continue">
+		<a href = "FINAL.html">
 		<svg class="Rectangle_119">
 			<rect fill="rgba(49,148,225,1)" id="Rectangle_119" rx="4" ry="4" x="0" y="0" width="259" height="48">
 			</rect>
 		</svg>
+		</a>
 		<div id="CONTINUE">
 			<span>SUBMIT</span>
 		</div>
@@ -433,14 +442,16 @@
 		<div id="LOCATION_A3_Text_7">
 			<span>REPORT IRREGULARITIES</span>
 		</div>
-		<a href = "MAIN.html">
+		
 		<div id="Backward_arrow_A3_Group_7">
+			<a href = "MAIN.html">
 			<svg class="Path_10_A3_Path_3" viewBox="0 0 16 16">
 				<path fill="rgba(38,153,251,1)" id="Path_10_A3_Path_3" d="M 8 0 L 6.545454978942871 1.454545497894287 L 12.05194854736328 6.961039066314697 L 0 6.961039066314697 L 0 9.038961410522461 L 12.05194854736328 9.038961410522461 L 6.545454978942871 14.54545497894287 L 8 16 L 16 8 L 8 0 Z">
 				</path>
 			</svg>
+				</a>
 		</div>
-		</a>
+	
 	</div>
 	<div id="Navigation_Bar_A3_Group_6">
 		<svg class="Rectangle_68_A3_Rectangle_10">
@@ -476,5 +487,36 @@
 		<span>Offence</span>
 	</div>
 </div>
+
+<video id="video"></video>
+<canvas id="canvas"></canvas><br>
+
+<script type="text/javascript">
+     var video = document.getElementById('video');
+	 var canvas = document.getElementById('canvas');
+	 var context = canvas.getContext('2d');
+	 
+	 navigator.getUserMedia = navigator.getUserMedia || navigator.webkitgetUserMedia || navigator.mozGetUserMedia || navigator.oGetUserMedia || navigator.msGetUserMedia;
+	 
+	 if(navigator.getUserMedia) {
+	     navigator.getUserMedia({video:true}, streamWebCam, throwError);
+	 }
+	 
+	 function streamWebCam (stream) {
+	     video.src = window.URL.createObjectURL(stream);
+		 video.play();
+	 }
+	 
+	 function throwError (e) {
+	     alert(e.name);
+	 }
+
+    function snap() {
+         canvas.width = video.clientWidth;
+         canvas.height = video.clientHeight;
+canvas.drawImage(video,0,0)		 
+	}
+	
+</script>
 </body>
 </html>
